@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #edf1f5;
+}
+
+.heigth{
+  height: 89vh;
+}
+
+@media only screen and (max-width: 765px){
+  .heigth{
+    height: 94vh;
+  }
+}
