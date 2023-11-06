@@ -103,7 +103,7 @@ const TodoList = () => {
     <>
       <main className=" flex justify-center m-auto flex-col items-center">
         <h1 className=" m-2 text-xl">Administra tus tareas</h1>
-        <div className=" w-11/12 flex justify-end">
+        <div className=" w-11/12 flex justify-end m-2">
           <button
             className=" h-9 w-28 bg-blue-600 text-white rounded-lg"
             onClick={() => logout(datosUser)}
@@ -111,7 +111,7 @@ const TodoList = () => {
             Logout
           </button>
         </div>
-        <div className=" md:w-7/12 w-11/12 m-2 flex items-center flex-wrap rounded-md h-14 md:h-12 bg-white">
+        <div className=" content m-2 flex items-center flex-wrap rounded-md bg-white">
           <form
             className=" flex justify-evenly w-full items-center"
             onSubmit={handelSubmit}
@@ -148,11 +148,11 @@ const TodoList = () => {
             />
           </form>
         </div>
-        <section className=" flex items-center flex-col m-2 md:w-7/12">
+        <section className=" flex items-center flex-col m-2 width">
           {datos.length > 0 &&
             datos.map((item, i) => (
               <div
-                className=" w-11/12 flex justify-around items-center rounded-md bg-white h-11 m-2"
+                className=" w-11/12 flex justify items-center rounded-md bg-white h-11 m-2"
                 key={i}
               >
                 <h1 className=" text-center">{item.tarea}</h1>

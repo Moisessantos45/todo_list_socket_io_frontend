@@ -10,8 +10,54 @@ body {
   height: 89vh;
 }
 
+.content{
+  height: 60px;
+  width: 60%;
+}
+
+.width{
+  width: 60%;
+}
+
+.justify{
+  justify-content: space-between;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 1000px){
+  .content{
+    height: 60px;
+    width: 70%;
+  }
+
+  .width{
+    width: 70%;
+  }
+  
+}
+
+@media only screen and (max-width: 865px){
+  .content{
+    height: 60px;
+    width: 80%;
+  }
+
+  .width{
+    width: 80%;
+  }
+}
+
 @media only screen and (max-width: 765px){
   .heigth{
     height: 94vh;
+  }
+
+  .content{
+    height: 70px;
+    width: 95%;
+  }
+
+  .width{
+    width: 95%;
   }
 }
