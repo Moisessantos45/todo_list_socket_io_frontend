@@ -102,16 +102,17 @@ const TodoList = () => {
   return (
     <>
       <main className=" flex justify-center m-auto flex-col items-center">
-        <h1 className=" m-2 text-xl">Administra tus tareas</h1>
+        <h1 className=" m-2 text-xl font-bold">Administra tus tareas</h1>
         <div className=" w-11/12 flex justify-end m-2">
           <button
-            className=" h-9 w-28 bg-blue-600 text-white rounded-lg"
+            className=" h-9 w-28 font-bold bg-blue-600 text-white rounded-lg"
             onClick={() => logout(datosUser)}
           >
             Logout
+            <i className="m-1 fa-solid fa-arrow-right-from-bracket text-lg"></i>
           </button>
         </div>
-        <div className=" content m-2 flex items-center flex-wrap rounded-md bg-white">
+        <div className=" content m-2 md:w-11/12 tablet:w-10/12 lg:w-8/12 flex items-center flex-wrap rounded-md bg-white">
           <form
             className=" flex justify-evenly w-full items-center"
             onSubmit={handelSubmit}
@@ -124,15 +125,20 @@ const TodoList = () => {
                 id="tarea"
                 value={tarea}
                 onChange={(e) => setTarea(e.target.value)}
-                className=" rounded-sm outline outline-1 outline-slate-400  md:w-80 h-8"
+                className="rounded-sm mobile:w-60 sm:w-72 outline outline-1 outline-slate-400 md:w-80 h-8"
               />
             </div>
             <div className=" flex justify-center gap-1 items-center flex-col md:flex-row">
-              <label htmlFor="importancia">importancia: </label>
+              <label
+                htmlFor="importancia"
+                className=" rounded-md sm:flex hidden font-bold shadow-md shadow-slate-400 w-24 text-center h-7"
+              >
+                importancia:{" "}
+              </label>
               <select
                 name="importancia"
                 id="importancia"
-                className=" border-none outline-none"
+                className=" border-none outline-none rounded-md shadow-md shadow-slate-400 mobile:w-18 w-20 text-center h-7"
                 value={importancia}
                 onChange={(e) => setImportancia(e.target.value)}
               >
@@ -143,7 +149,7 @@ const TodoList = () => {
             </div>
             <input
               type="submit"
-              className=" rounded-md bg-blue-600 text-white w-16 text-sm md:text-xl md:w-24 h-8 cursor-pointer"
+              className=" rounded-md bg-blue-600 sm:w-24 text-white w-16 text-sm md:text-xl md:w-24 h-8 cursor-pointer"
               value={id ? "Actulizar" : "Agregar"}
             />
           </form>
@@ -152,25 +158,26 @@ const TodoList = () => {
           {datos.length > 0 &&
             datos.map((item, i) => (
               <div
-                className=" w-11/12 flex justify items-center rounded-md bg-white h-11 m-2"
+                className=" w-12/12 sm:w-11/12 flex justify items-center rounded-md bg-white h-11 m-2"
                 key={i}
               >
                 <h1 className=" text-center">{item.tarea}</h1>
-                <div className=" md:w-56 w-44 flex m-1 items-center justify-evenly">
+                <div className=" md:w-56 w-44 capitalize flex m-1 items-center justify-evenly">
                   <span className=" bg-lime-400 h-7 flex items-center justify-center rounded-lg w-12 text-center">
                     {item.importancia}
                   </span>
                   <button
-                    className="bg-blue-600 rounded-lg h-6 md:h-7 md:w-20 text-sm md:text-lg text-white m-1"
+                    className="bg-blue-600 rounded-lg w-10 h-6 mobile:w-12 tablet:h-7 md:h-7 md:w-10 text-sm md:text-lg text-white m-1"
                     onClick={() => actulizarTareas(item)}
                   >
-                    Actulizar
+                    <i className="fa-regular fa-pen-to-square"></i>
                   </button>
                   <button
-                    className="bg-rose-700 rounded-lg h-6 md:h-7 md:w-20 text-sm md:text-lg text-white m-1"
+                    className="bg-rose-700 rounded-lg w-10  mobile:w-12 tablet:h-7 h-6 md:h-7 md:w-10 text-sm md:text-lg text-white m-1"
                     onClick={() => eliminarTarea(item)}
                   >
-                    Eliminar
+                    <i className="fa-solid fa-x"></i>
+                    {/* Eliminar */}
                   </button>
                 </div>
               </div>
